@@ -35,6 +35,12 @@ public class FEntry
 	}
 	
 	
+	public File getFile()
+	{
+		return file;
+	}
+	
+	
 	public boolean isLeaf()
 	{
 		return leaf;

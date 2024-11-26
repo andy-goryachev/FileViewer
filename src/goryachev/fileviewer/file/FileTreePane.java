@@ -1,16 +1,12 @@
 // Copyright © 2024 Andy Goryachev <andy@goryachev.com>
-package goryachev.fileviewer;
-import goryachev.common.util.D;
-import goryachev.fileviewer.file.FEntry;
-import goryachev.fileviewer.file.FileTreeItem;
-import goryachev.fx.CPane;
+package goryachev.fileviewer.file;
+import goryachev.fx.FX;
 import java.io.File;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
-import javafx.geometry.Orientation;
+import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
-import javafx.scene.control.SplitPane;
-import javafx.scene.control.TreeItem;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TreeTableCell;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.TreeTableView;
@@ -18,23 +14,24 @@ import javafx.scene.layout.BorderPane;
 
 
 /**
- * TreeTable With Preview Pane.
+ * File Tree Pane.
  */
-public class TreeTableWithPreviewPane
-	extends CPane
+public class FileTreePane
+	extends BorderPane
 {
-	protected final TreeTableView<FEntry> tree;
-	protected final BorderPane detail;
-	protected final SplitPane split;
+	private final TreeTableView<FEntry> tree;
+	private final ObservableList<FEntry> selection;
 	
 	
-	public TreeTableWithPreviewPane()
+	public FileTreePane()
 	{
 		FileTreeItem root = FileTreeItem.create(new File("."));
 		
 		tree = new TreeTableView<>(root);
 		tree.setShowRoot(false);
-		tree.setColumnResizePolicy(TreeTableView.CONSTRAINED_RESIZE_POLICY_FLEX_NEXT_COLUMN);
+		tree.setColumnResizePolicy(TreeTableView.CONSTRAINED_RESIZE_POLICY_SUBSEQUENT_COLUMNS);
+		tree.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+		selection = FX.transform(tree.getSelectionModel().getSelectedCells(), (p) -> p.getTreeItem().getValue());
 		
 		{
 			TreeTableColumn<FEntry,String> c = new TreeTableColumn<>("Name");
@@ -134,22 +131,12 @@ public class TreeTableWithPreviewPane
 			tree.getColumns().add(c);
 		}
 		
-		detail = new BorderPane();
-		
-		split = new SplitPane(tree, detail);
-		split.setOrientation(Orientation.HORIZONTAL);
-		split.setDividerPositions(0.25);
-		setCenter(split);
-		
-		tree.getSelectionModel().selectedItemProperty().addListener((s,p,c) ->
-		{
-			handleSelection(c);
-		});
-		tree.getSelectionModel().selectFirst();
+		setCenter(tree);
 	}
-
-
-	protected void handleSelection(TreeItem<FEntry> sel)
+	
+	
+	public ObservableList<FEntry> getSelection()
 	{
+		return selection;
 	}
 }
