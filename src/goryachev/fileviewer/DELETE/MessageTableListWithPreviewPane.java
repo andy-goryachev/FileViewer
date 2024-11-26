@@ -1,5 +1,5 @@
 // Copyright © 2023-2024 Andy Goryachev <andy@goryachev.com>
-package goryachev.fileviewer;
+package goryachev.fileviewer.DELETE;
 import goryachev.fx.FxObject;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;

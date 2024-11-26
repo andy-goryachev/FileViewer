@@ -1,5 +1,5 @@
 // Copyright © 2024 Andy Goryachev <andy@goryachev.com>
-package goryachev.fileviewer;
+package goryachev.fileviewer.DELETE;
 import goryachev.common.util.SB;
 
 

@@ -1,5 +1,6 @@
 // Copyright © 2023-2024 Andy Goryachev <andy@goryachev.com>
 package goryachev.fileviewer;
+import goryachev.fileviewer.DELETE.MessageEditor;
 import goryachev.fx.CommonStyles;
 import goryachev.fx.FxStyleSheet;
 import goryachev.fx.Theme;

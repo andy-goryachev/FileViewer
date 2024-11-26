@@ -17,6 +17,9 @@ import javafx.stage.Stage;
  */
 public class FileViewerApp extends Application
 {
+	public static final String COPYRIGHT = "copyright © 2024 andy goryachev";
+	
+	
 	public static void main(String[] args)
 	{
 		// init logging
@@ -46,9 +49,6 @@ public class FileViewerApp extends Application
 		// generate stylesheet
 		FxFramework.setStyleSheet(Styles::new);
 
-		// create/load data and open the main window
-		DemoData d = new DemoData();
-		
 		// support multiple windows
 		ASettingsStore store = GlobalSettings.instance();
 		FxFramework.openLayout(new FxSettingsSchema(store)
@@ -56,20 +56,13 @@ public class FileViewerApp extends Application
 			@Override
 			public Stage createDefaultWindow()
 			{
-				return new MainWindow(d);
+				return new MainWindow();
 			}
 
 			@Override
 			protected Stage createWindow(String name)
 			{
-				if(SecondaryWindow.NAME.equals(name))
-				{
-					return new SecondaryWindow();
-				}
-				else
-				{
-					return new MainWindow(d);
-				}
+				return new MainWindow();
 			}
 		});
 	}
