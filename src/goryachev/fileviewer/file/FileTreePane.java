@@ -25,7 +25,7 @@ public class FileTreePane
 	
 	public FileTreePane()
 	{
-		FileTreeItem root = FileTreeItem.create(new File("."));
+		FileTreeItem root = FileTreeItem.create(new File("D:/"));
 		
 		tree = new TreeTableView<>(root);
 		tree.setShowRoot(false);
