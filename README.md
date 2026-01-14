@@ -19,7 +19,7 @@ This project is currently in the early development stage.  Do not even think of 
 
 ## Requirements
 
-Requires JavaFX 23+.
+Requires JavaFX 25+.
 
 
 ## License
