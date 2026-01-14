@@ -1,4 +1,4 @@
-// Copyright © 2024 Andy Goryachev <andy@goryachev.com>
+// Copyright © 2024-2026 Andy Goryachev <andy@goryachev.com>
 package goryachev.fileviewer.gallery;
 import goryachev.common.util.FH;
 

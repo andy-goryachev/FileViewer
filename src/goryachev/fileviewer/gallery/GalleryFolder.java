@@ -1,4 +1,4 @@
-// Copyright © 2023-2024 Andy Goryachev <andy@goryachev.com>
+// Copyright © 2023-2026 Andy Goryachev <andy@goryachev.com>
 package goryachev.fileviewer.gallery;
 import goryachev.fx.FxString;
 import javafx.beans.property.StringProperty;
