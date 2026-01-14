@@ -38,6 +38,10 @@ public class PreviewPane
 		
 		File f = en.getFile();
 		
+		// TODO identify format
+		// open viewer
+		// handle errors
+		
 		String uri = f.toURI().toString();
 		Media media;
 		try
