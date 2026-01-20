@@ -2,7 +2,7 @@
 package goryachev.fileviewer;
 import goryachev.fileviewer.file.FEntry;
 import goryachev.fileviewer.file.FileTreePane;
-import goryachev.fileviewer.file.PreviewPane;
+import goryachev.fileviewer.preview.PreviewPane;
 import goryachev.fx.FX;
 import goryachev.fx.FxFramework;
 import goryachev.fx.FxMenuBar;
